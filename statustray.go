@@ -21,10 +21,10 @@ func main() {
 		// by clicking the tray icon.
 
 		// Be sure to call this to link the tray icon to the target url
-		url := "http://sensu.dev.intra.tkppensioen.nl"
+		url := "http://sensu.tst.intra.tkppensioen.nl"
 		trayhost.SetUrl(url)
 		for {
-			config := tray_plugin.Config{{"url", "http://sensu.dev.intra.tkppensioen.nl:4567/results"}}
+			config := tray_plugin.Config{{"url", "http://sensu.tst.intra.tkppensioen.nl:4567/events"}, {"tag", "type=platform"}, {"subscription", "owner=pdp"}}
 			trayhost.SetIcon(tray_sensu_plugin.GetStatus(config))
 			time.Sleep(30 * time.Second)
 		}
